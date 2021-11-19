@@ -50,8 +50,11 @@ public class CourseRepository{
                     while(rowScanner.hasNext()){
                         values.add(rowScanner.next());
                     }
-                    Course toAdd = new Course(Integer.parseInt(values.get(0)),values.get(1),TeachersRepository.getInstance().getOne(Integer.parseInt(values.get(2))),Integer.parseInt(values.get(3)),Integer.parseInt(values.get(4)));
-                    toReturn.add(toAdd);
+                    if(values.size() > 0){
+                        Course toAdd = new Course(Integer.parseInt(values.get(0)),values.get(1),TeachersRepository.getInstance().getOne(Integer.parseInt(values.get(2))),Integer.parseInt(values.get(3)),Integer.parseInt(values.get(4)));
+                        toReturn.add(toAdd);
+                    }
+
                 }
 
             }

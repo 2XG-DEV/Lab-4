@@ -46,10 +46,13 @@ public class StudentRepository {
                     while(rowScanner.hasNext()){
                         values.add(rowScanner.next());
                     }
-                    Student toReturn = new Student(Integer.parseInt(values.get(0)),values.get(1),values.get(2));
-                    if(toReturn.getStudentId() == id){
-                        return toReturn;
+                    if(values.size() > 0){
+                        Student toReturn = new Student(Integer.parseInt(values.get(0)),values.get(1),values.get(2));
+                        if(toReturn.getStudentId() == id){
+                            return toReturn;
+                        }
                     }
+
                 }
 
             }
@@ -70,8 +73,11 @@ public class StudentRepository {
                     while(rowScanner.hasNext()){
                         values.add(rowScanner.next());
                     }
-                    Student toAdd = new Student(Integer.parseInt(values.get(0)),values.get(1),values.get(2));
-                    toReturn.add(toAdd);
+                    if(values.size() > 0){
+                        Student toAdd = new Student(Integer.parseInt(values.get(0)),values.get(1),values.get(2));
+                        toReturn.add(toAdd);
+                    }
+
                 }
 
             }
